@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="contactListApp">
+    <head>
+        <title>Contact List</title>
+
+        <script src="/angular/angular.min.js"></script>
+        <script src="/jquery/jquery.min.js"></script>
+        <script src="/bootstrap/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css" />
+        <script src="/controllers/AppController.js"></script>
+    </head>
+    <body>
+        <div ng-controller="ContactTableController as table" class="container">
+            <h1>Contact List</h1>
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="contact in table.contacts">
+                        <td>{{contact.name}}</td>
+                        <td>{{contact.email}}</td>
+                        <td>{{contact.number}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
