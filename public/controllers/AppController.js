@@ -12,4 +12,23 @@ contactListApp.controller("ContactTableController", function($scope, $http)
             return vm;
         }
     );
+    
+    $scope.addContact = function()
+    {
+        $http.post("/contacts", $scope.contact).then
+        (
+            (
+                function(response)
+                {
+                    vm.contacts.push(response.data);
+                    
+                    $scope.contact.name = "";
+                    $scope.contact.email = "";
+                    $scope.contact.number = "";
+                    
+                    return vm;
+                }
+            )
+        );
+    };
 });

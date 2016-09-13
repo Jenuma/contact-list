@@ -6,7 +6,7 @@
         <script src="/angular/angular.min.js"></script>
         <script src="/jquery/jquery.min.js"></script>
         <script src="/bootstrap/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css"/>
         <script src="/controllers/AppController.js"></script>
     </head>
     <body>
@@ -19,9 +19,20 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Number</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td><input ng-model="contact.name" class="form-control"/></td>
+                        <td><input ng-model="contact.email" class="form-control"/></td>
+                        <td><input ng-model="contact.number" class="form-control"/></td>
+                        <td>
+                            <button ng-click="addContact()" class="btn btn-primary">
+                                Add Contact
+                            </button>
+                        </td>
+                    </tr>
                     <tr ng-repeat="contact in table.contacts">
                         <td>{{contact.name}}</td>
                         <td>{{contact.email}}</td>
