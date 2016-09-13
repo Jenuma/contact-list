@@ -1,0 +1,30 @@
+<div class="container" ng-controller="ContactController as contactCtrl">
+    <h1>Contact List</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Number</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input class="form-control" ng-model="contactCtrl.newContact.name"/></td>
+                <td><input class="form-control" ng-model="contactCtrl.newContact.email"/></td>
+                <td><input class="form-control" ng-model="contactCtrl.newContact.number"/></td>
+                <td>
+                    <button class="btn btn-primary" ng-click="contactCtrl.addContact()">
+                        Add Contact
+                    </button>
+                </td>
+            </tr>
+            <tr ng-repeat="contact in contactCtrl.contacts">
+                <td>{{contact.name}}</td>
+                <td>{{contact.email}}</td>
+                <td>{{contact.number}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
