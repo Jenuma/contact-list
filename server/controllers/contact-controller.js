@@ -8,7 +8,7 @@ router.get("/", function(req, res) {
     
     Contact.find({}).lean().exec()
         .then(function(results) {
-            res.json(results);
+            res.status(200).json(results);
         })
         .catch(function(err) {
             console.log("Error: " + err);
@@ -26,7 +26,7 @@ router.post("/", function(req, res) {
     
     newContact.save()
         .then(function(result) {
-            res.json(result);
+            res.status(200).json(result);
         })
         .catch(function(err) {
             console.log("Error: " + err);

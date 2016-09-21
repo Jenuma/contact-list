@@ -1,0 +1,8 @@
+{
+    "allContacts": [
+        {"name":"Stan","email":"stan@example.com","number":"(111) 111-1111"},
+        {"name":"Francine","email":"francine@example.com","number":"(222) 222-2222"},
+        {"name":"Steve","email":"steve@example.com","number":"(333) 333-3333"}
+    ],
+    "newContact": {"name":"Haley","email":"haley@example.com","number":"(444) 444-4444"}
+}
