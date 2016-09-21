@@ -8,8 +8,8 @@ In the future, the app should support the ability to edit and delete contacts, a
 ## Running the App Locally
 1. Clone the repo to your destination of choice.
 2. Install Node.js if you haven't already.
-3. Navigate to `contact-list` and run `npm install` to install dependencies.
+3. Navigate to contact-list and run `npm install` to install dependencies.
 4. Install MongoDB if you haven't already.
-5. Run an instance of `mongod` on `localhost` at port 27017.
+5. Run an instance of mongod.exe on localhost at port 27017 (default address).
 6. Navigate to the server folder and run `node server`.
 7. Navigate to localhost:3000 to load the client.
