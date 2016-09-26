@@ -1,17 +1,28 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html lang="en" ng-app="app">
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
         <title>Contact List</title>
         
         <script src="/angular/angular.js"></script>
+        <script src="/angular-animate/angular-animate.js"></script>
         <script src="/controllers/contacts.js"></script>
         <script src="/controllers/app.js"></script>
         <script src="/jquery/jquery.js"></script>
         <script src="/bootstrap/js/bootstrap.js"></script>
-        <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="/font-awesome/css/font-awesome.min.css"/>
+        <link rel="stylesheet" type="text/css" href="/animate.css/animate.min.css"/>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/index.css"/>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/contacts/contacts.index.css"/>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/footer.css"/>
     </head>
     <body>
         <!-- ng-include takes an Angular expression, so wrapping in '' is required -->
-        <div id="wgl-content" ng-include="'./contacts/contacts.html'"></div>
+        <div id="content-container" ng-include="'./contacts/contacts.index.html'"></div>
+        <div id="footer-container" ng-include="'./_footer.html'"></div>
     </body>
 </html>
