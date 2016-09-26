@@ -13,9 +13,13 @@ var app = express();
 // Static directories
 //
 app.use("/angular", express.static("../node_modules/angular"));
+app.use("/angular-animate", express.static("../node_modules/angular-animate"));
+app.use("/animate.css", express.static("../node_modules/animate.css"));
 app.use("/jquery", express.static("../node_modules/jquery/dist"));
 app.use("/bootstrap", express.static("../node_modules/bootstrap/dist"));
+app.use("/font-awesome", express.static("../node_modules/font-awesome"))
 app.use("/controllers", express.static("../client/controllers"));
+app.use("/stylesheets", express.static("../client/stylesheets"));
 app.use(express.static("../client/views"));
 app.use(bodyParser.json());
 

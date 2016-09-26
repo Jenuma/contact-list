@@ -1,4 +1,4 @@
-<div class="container" ng-controller="ContactController as contactCtrl">
+<div id="contact-index" class="container" ng-controller="ContactController as contactCtrl">
     <h1>Contact List</h1>
     <table class="table">
         <thead>
@@ -15,12 +15,12 @@
                 <td><input class="form-control" ng-model="contactCtrl.newContact.email"/></td>
                 <td><input class="form-control" ng-model="contactCtrl.newContact.number"/></td>
                 <td>
-                    <button class="btn btn-primary" ng-click="contactCtrl.addContact()">
-                        Add Contact
+                    <button class="btn btn-success" ng-click="contactCtrl.addContact()">
+                        <span class="fa fa-plus"></span>
                     </button>
                 </td>
             </tr>
-            <tr ng-repeat="contact in contactCtrl.contacts">
+            <tr class="contact-row" ng-repeat="contact in contactCtrl.contacts">
                 <td>{{contact.name}}</td>
                 <td>{{contact.email}}</td>
                 <td>{{contact.number}}</td>

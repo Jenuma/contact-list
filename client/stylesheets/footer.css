@@ -1,0 +1,22 @@
+#footer {
+    margin: 1em auto;
+    padding: 1em;
+    
+    min-height: 3em;
+    max-width: 800px;
+    
+    border-radius: 10px;
+    box-shadow: 5px 5px 3px #AAAAAA;
+        
+    background-color: white;
+    
+    font-size: 14px;
+}
+
+#author {
+    float: left;
+}
+
+#project {
+    float: right;
+}

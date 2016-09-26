@@ -1,13 +1,16 @@
 {
   "name": "contact-list",
-  "version": "1.0.0",
+  "version": "0.4.0",
   "description": "An example project for becoming familiar with MEAN stack.",
   "main": "server.js",
   "dependencies": {
     "angular": "^1.5.8",
+    "angular-animate": "^1.5.8",
+    "animate.css": "^3.5.2",
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
     "express": "^4.14.0",
+    "font-awesome": "^4.6.3",
     "jquery": "^3.1.0",
     "mongoose": "^4.6.0"
   },
