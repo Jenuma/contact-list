@@ -23,11 +23,11 @@ app.use(bodyParser.json());
 // Mongoose connection logic
 //
 mongoose.connect(dbConfig.url);
-var db = mongoose.connection;
+var connection = mongoose.connection;
 
-db.on("error", console.error.bind(console, "Connection error: "));
+connection.on("error", console.error.bind(console, "Connection error: "));
 
-db.once("open", function() {
+connection.once("open", function() {
    console.log("Connected to db.contact-list-dev.contacts."); 
 });
 
@@ -38,3 +38,5 @@ app.use("/", routes);
 
 app.listen(3000);
 console.log("Server running on port 3000...");
+
+module.exports = app;
