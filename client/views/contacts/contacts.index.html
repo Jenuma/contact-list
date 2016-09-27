@@ -24,6 +24,11 @@
                 <td>{{contact.name}}</td>
                 <td>{{contact.email}}</td>
                 <td>{{contact.number}}</td>
+                <td>
+                    <button class="btn btn-danger" ng-click="contactCtrl.deleteContact(contact.id)">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </td>
             </tr>
         </tbody>
     </table>

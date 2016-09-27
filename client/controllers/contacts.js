@@ -12,7 +12,7 @@
         // vm =
         // {
         //     contacts = [Contact1{}, Contact2{}, ...],
-        //     newContact = Contact{name: x, email: y, number: z}
+        //     newContact = Contact{id: w, name: x, email: y, number: z}
         // }
         //
 
@@ -37,6 +37,20 @@
                     vm.newContact.email = "";
                     vm.newContact.number = "";
 
+                    return vm;
+                }
+            );
+        };
+        
+        vm.deleteContact = function(id) {
+            $http.delete("/contacts/" + id).then(
+                function(response) {
+                    for(var i = 0; i < vm.contacts.length; i++) {
+                        if(vm.contacts[i].id === response.data.id) {
+                            vm.contacts.splice(i, 1);
+                            break;
+                        }
+                    }
                     return vm;
                 }
             );

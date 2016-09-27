@@ -56,22 +56,40 @@ module.exports = function(grunt) {
     //
     grunt.registerTask("db-populate", "Populates the database with dummy data.", function() {
         var mongoose = require("mongoose");
+        var async = require("async");
         var dbConfig = require("./config/db");
-        var Contact = require("./server/models/contact").Contact;
         
-        var dummydata = grunt.file.readJSON("./config/development-data.json").allContacts;
+        var jsonContacts = grunt.file.readJSON("./config/development-data.json").allContacts;
         var done = this.async();
         
+        mongoose.Promise = global.Promise;
+        
+        global.autoIncrement = require("mongoose-auto-increment");
         mongoose.connect(dbConfig.url);
         var connection = mongoose.connection;
+        autoIncrement.initialize(connection);
+        
+        var Contact = require("./server/models/contact").Contact;
+        
+        var contacts = [];
+        for(var i = 0; i < jsonContacts.length; i++) {
+            var newContact = new Contact({
+                name: jsonContacts[i].name,
+                email: jsonContacts[i].email,
+                number: jsonContacts[i].number
+            });
+            contacts.push(newContact);
+        }
         
         connection.once("open", function() {
-            Contact.collection.insert(dummydata, function(err, result) {
+            async.eachSeries(contacts, function(contact, asyncdone) {
+                contact.save(asyncdone);
+            }, function(err) {
                 if(err) {
                     grunt.log.writeln("Error: " + err);
                 }
                 else {
-                    grunt.log.writeln("Successfully wrote dummy data to development database.");
+                    grunt.log.writeln("Successfully wrote contacts to dev database.");
                 }
                 
                 connection.close(done);

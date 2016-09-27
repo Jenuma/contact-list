@@ -12,6 +12,7 @@ router.get("/", function(req, res) {
         })
         .catch(function(err) {
             console.log("Error: " + err);
+            res.status(500).json(err);
         });
 });
 
@@ -26,11 +27,34 @@ router.post("/", function(req, res) {
     
     newContact.save()
         .then(function(result) {
-            res.status(200).json(result);
+            res.status(201).json(result);
         })
         .catch(function(err) {
             console.log("Error: " + err);
+            res.status(500).json(err);
         });
+});
+
+router.delete("/:id", function(req, res) {
+    var id = req.params.id;
+    
+    var Contact = require("../models/contact").Contact;
+    
+    Contact.findOne({id: id}).exec()
+        .then(function(result) {
+            result.remove({id: id})
+                .then(function(result) {
+                    res.status(200).json(result);
+                })
+                .catch(function(err) {
+                    console.log("Error: " + err);
+                    res.status(500).json(err);
+                });
+        })
+        .catch(function(err) {
+            console.log("Error: " + err);
+            res.status(404).json(err);
+        })
 });
 
 module.exports = router;
