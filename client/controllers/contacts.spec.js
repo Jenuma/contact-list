@@ -12,9 +12,11 @@ describe("The client-side ContactController", function() {
         $rootScope = $injector.get("$rootScope");
         $controller = $injector.get("$controller");
         
-        expectedAllContacts = readJSON("development-data.json").allContacts;
+        expectedAllContacts = readJSON("development-data.json").expectedAllContacts;
         
-        $httpBackend.expectGET("/contacts").respond(200, expectedAllContacts);
+        $httpBackend.expectGET("/contacts")
+            .respond(200, expectedAllContacts);
+        
         contactsController = $controller("ContactController", {"$scope": $rootScope});
         $httpBackend.flush();
     }));
@@ -24,25 +26,65 @@ describe("The client-side ContactController", function() {
         $httpBackend.verifyNoOutstandingRequest();
     });
     
+    //
+    // getContacts()
+    //
     it("can get all contacts", function() {
-        $httpBackend.whenGET("/contacts").respond(200, expectedAllContacts);
+        $httpBackend.whenGET("/contacts")
+            .respond(200, expectedAllContacts);
+        
         contactsController.getContacts();
         $httpBackend.flush();
         
         expect(contactsController.contacts).toEqual(expectedAllContacts);
     });
     
-    it("can add a new contact and update the list", function() {
+    //
+    // addContact()
+    //
+    it("can add a new contact", function() {
         // Set up the new contact:
         var newContact = readJSON("development-data.json").newContact;
         contactsController.newContact = JSON.parse(JSON.stringify(newContact));
         
-        $httpBackend.whenPOST("/contacts").respond(200, newContact);
+        var expectedNewContact = {
+            id: contactsController.contacts.length + 1,
+            name: newContact.name,
+            email: newContact.email,
+            number: newContact.number
+        }
+        
+        $httpBackend.whenPOST("/contacts")
+            .respond(200, expectedNewContact);
+        
         contactsController.addContact();
         $httpBackend.flush();
         
         // New contact should be added:
-        expectedAllContacts.push(newContact);
+        expectedAllContacts.push(expectedNewContact);
+        
+        expect(contactsController.contacts).toEqual(expectedAllContacts);
+    });
+    
+    //
+    // deleteContact()
+    //
+    it("can delete a contact", function() {
+        var id = 2;
+        var contactToDelete = contactsController.contacts[id];
+        
+        $httpBackend.whenDELETE("/contacts/" + contactToDelete.id)
+            .respond(200, contactToDelete);
+        contactsController.deleteContact(contactToDelete.id);
+        $httpBackend.flush();
+        
+        // Deleted contact should be gone:
+        for(var i = 0; i < expectedAllContacts.length; i++) {
+            if(expectedAllContacts[i].id === id) {
+                expectedAllContacts.splice(i, 1);
+                break;
+            }
+        }
         
         expect(contactsController.contacts).toEqual(expectedAllContacts);
     });

@@ -6,4 +6,6 @@ var ContactSchema = new mongoose.Schema({
     number: String, default: ""
 });
 
+ContactSchema.plugin(autoIncrement.plugin, {model: "Contact", field: "id"});
+
 exports.Contact = mongoose.model("Contact", ContactSchema, "contacts");

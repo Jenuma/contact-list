@@ -28,6 +28,8 @@ app.use(bodyParser.json());
 //
 mongoose.connect(dbConfig.url);
 var connection = mongoose.connection;
+global.autoIncrement = require("mongoose-auto-increment");
+autoIncrement.initialize(connection);
 
 connection.on("error", console.error.bind(console, "Connection error: "));
 
