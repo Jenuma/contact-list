@@ -31,7 +31,7 @@ describe("The server-side contact controller", function() {
     });
     
     it("can add a new contact", function(done) {
-        var formData = {name:"Haley",email:"haley@example.com",number:"(444) 444-4444"};
+        var formData = require("../../config/development-data.json").newContact;
         var expectedNewContact = require("../../config/development-data.json").expectedNewContact;
         
         var options = {
@@ -72,6 +72,31 @@ describe("The server-side contact controller", function() {
             };
             
             expect(actualDeletedContact).toEqual(expectedDeletedContact);
+            done();
+        });
+    });
+    
+    it("can edit a contact", function(done) {
+        var id = 0;
+        var expectedEditedContact = require("../../config/development-data.json").expectedEditedContact;
+        
+        var options = {
+            url: base_url + "/contacts/" + id,
+            method: "PUT",
+            json: true,
+            body: expectedEditedContact
+        };
+        request(options, function(error, response, body) {
+            expect(response.statusCode).toEqual(200);
+            
+            var actualEditedContact = {
+                id: body.id,
+                name: body.name,
+                email: body.email,
+                number: body.number
+            };
+            
+            expect(actualEditedContact).toEqual(expectedEditedContact);
             done();
         });
     });
