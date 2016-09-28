@@ -6,8 +6,6 @@ Since I'm not using any sort of task board for this simple project, I'm going to
 
 I would like the ability to edit contacts.
 
-I would like the ability to delete contacts.
-
 The application should do some validation on the data, maybe client and server both.
 
 I should be able to hit `return` instead of having to click on the add button.
@@ -15,8 +13,6 @@ I should be able to hit `return` instead of having to click on the add button.
 The server-side endpoints need to be more verbose, and handle errors.
 
 ## Style
-
-I would like the application to look better.
 
 The list items shouldn't animate on load; only new contacts should animate.
 A possible solution to this is the async library, but I just have to look into it.
