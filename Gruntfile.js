@@ -16,6 +16,20 @@ module.exports = function(grunt) {
                 configFile: "config/karma.conf.js",
                 singleRun: true
             }
+        },
+        remove: {
+            dev: {
+                dirList: ["documentation"]
+            }
+        },
+        jsdoc: {
+            dev: {
+                src: ["client/**/*.js", "server/**/*.js"],
+                dest: "documentation",
+                options: {
+                    configure: "./config/jsdoc.conf.json"
+                }
+            }
         }
     });
     
@@ -24,6 +38,8 @@ module.exports = function(grunt) {
     //
     grunt.loadNpmTasks("grunt-nodemon");
     grunt.loadNpmTasks("grunt-karma");
+    grunt.loadNpmTasks("grunt-remove");
+    grunt.loadNpmTasks("grunt-jsdoc");
     
     //
     // db-clear
@@ -146,6 +162,11 @@ module.exports = function(grunt) {
     // test
     //
     grunt.registerTask("test", ["db-reset", "karma", "jasmine-node"]);
+    
+    //
+    // docs
+    //
+    grunt.registerTask("docs", ["remove", "jsdoc"]);
     
     //
     // default

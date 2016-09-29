@@ -26,9 +26,6 @@ describe("The client-side ContactController", function() {
         $httpBackend.verifyNoOutstandingRequest();
     });
     
-    //
-    // getContacts()
-    //
     it("can get all contacts", function() {
         $httpBackend.whenGET("/contacts")
             .respond(200, expectedAllContacts);
@@ -39,9 +36,6 @@ describe("The client-side ContactController", function() {
         expect(contactsController.contacts).toEqual(expectedAllContacts);
     });
     
-    //
-    // addContact()
-    //
     it("can add a new contact", function() {
         // Set up the new contact:
         var newContact = readJSON("development-data.json").newContact;
@@ -62,9 +56,6 @@ describe("The client-side ContactController", function() {
         expect(contactsController.contacts).toEqual(expectedAllContacts);
     });
     
-    //
-    // deleteContact()
-    //
     it("can delete a contact", function() {
         var id = 2;
         var contactToDelete = contactsController.contacts[id];
@@ -85,9 +76,6 @@ describe("The client-side ContactController", function() {
         expect(contactsController.contacts).toEqual(expectedAllContacts);
     });
     
-    //
-    // editContact()
-    //
     it("can edit a contact", function() {
         contactsController.formData = contactsController.contacts[0];
         var expectedEditedContact = readJSON("development-data.json").expectedEditedContact;

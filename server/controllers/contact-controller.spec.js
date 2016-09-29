@@ -11,7 +11,7 @@ describe("The server-side contact controller", function() {
     it("can get all contacts", function(done) {
         request.get(base_url + "/contacts", function(error, response, body) {
             expect(response.statusCode).toEqual(200);
-
+            
             body = JSON.parse(body);
             var actualAllContacts = [];
             
