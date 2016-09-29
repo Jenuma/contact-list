@@ -1,9 +1,21 @@
 # contact-list
 An example project for becoming familiar with MEAN stack.
 
-It currently features the ability to list all contacts (name/email address/phone number) from a MongoDB data source. Additionally, you can add a new contact and it will populate the list immediately.
+It currently features the ability to list all contacts (name/email address/phone number) from a MongoDB data source.
+Additionally, you can add new contacts, delete contacts, or edit contacts.
 
-In the future, the app should support the ability to edit and delete contacts, and possibly more beyond that. Based on a YouTube tutorial that I will like when I feel like it another day.
+Based on [this](https://www.youtube.com/watch?v=kHV7gOHvNdk) YouTube tutorial.
+
+I have derailed from the tutorial quite a bit:
+- This project uses Mongoose instead of MongoJS
+- This project implements up-to-date Angular best-practices
+- This project's concerns are separated appropriately
+- This project features unit tests for client and server controllers
+- This project utilizes `grunt` to automate several tasks
+- This project features dummy data for automated testing
+- This project is styled with CSS
+- This project features `animate.css` animations
+- This project utilizes `font-awesome` icons
 
 ## Running the App Locally
 1. Clone the repo to your destination of choice.
