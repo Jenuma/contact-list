@@ -45,14 +45,10 @@ describe("The client-side ContactController", function() {
     it("can add a new contact", function() {
         // Set up the new contact:
         var newContact = readJSON("development-data.json").newContact;
-        contactsController.newContact = JSON.parse(JSON.stringify(newContact));
+        //TODO: Find a better deep copy method.
+        contactsController.formData = JSON.parse(JSON.stringify(newContact));
         
-        var expectedNewContact = {
-            id: contactsController.contacts.length + 1,
-            name: newContact.name,
-            email: newContact.email,
-            number: newContact.number
-        }
+        var expectedNewContact = readJSON("development-data.json").expectedNewContact;
         
         $httpBackend.whenPOST("/contacts")
             .respond(200, expectedNewContact);
@@ -85,6 +81,23 @@ describe("The client-side ContactController", function() {
                 break;
             }
         }
+        
+        expect(contactsController.contacts).toEqual(expectedAllContacts);
+    });
+    
+    //
+    // editContact()
+    //
+    it("can edit a contact", function() {
+        contactsController.formData = contactsController.contacts[0];
+        var expectedEditedContact = readJSON("development-data.json").expectedEditedContact;
+        
+        $httpBackend.whenPUT("/contacts/" + contactsController.formData.id)
+            .respond(200, expectedEditedContact);
+        contactsController.editContact();
+        $httpBackend.flush();
+        
+        expectedAllContacts[0] = expectedEditedContact;
         
         expect(contactsController.contacts).toEqual(expectedAllContacts);
     });

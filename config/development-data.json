@@ -10,5 +10,6 @@
         {"id":2,"name":"Steve","email":"steve@example.com","number":"(333) 333-3333"}
     ],
     "newContact": {"name":"Haley","email":"haley@example.com","number":"(444) 444-4444"},
-    "expectedNewContact": {"id":3,"name":"Haley","email":"haley@example.com","number":"(444) 444-4444"}
+    "expectedNewContact": {"id":3,"name":"Haley","email":"haley@example.com","number":"(444) 444-4444"},
+    "expectedEditedContact": {"id":0,"name":"Staniel","email":"staniel@example.com","number":"(111) 222-3333"}
 }

@@ -5,7 +5,6 @@ var router = require("express").Router();
 
 router.get("/", function(req, res) {
     var Contact = require("../models/contact").Contact;
-    
     Contact.find({}).lean().exec()
         .then(function(results) {
             res.status(200).json(results);
@@ -18,7 +17,6 @@ router.get("/", function(req, res) {
 
 router.post("/", function(req, res) {
     var Contact = require("../models/contact").Contact;
-    
     var newContact = new Contact({
         name: req.body.name,
         email: req.body.email,
@@ -39,22 +37,28 @@ router.delete("/:id", function(req, res) {
     var id = req.params.id;
     
     var Contact = require("../models/contact").Contact;
-    
-    Contact.findOne({id: id}).exec()
+    Contact.findOneAndRemove({id: id}).exec()
         .then(function(result) {
-            result.remove({id: id})
-                .then(function(result) {
-                    res.status(200).json(result);
-                })
-                .catch(function(err) {
-                    console.log("Error: " + err);
-                    res.status(500).json(err);
-                });
+            res.status(200).json(result);
         })
         .catch(function(err) {
             console.log("Error: " + err);
             res.status(404).json(err);
+        });
+});
+
+router.put("/:id", function(req, res) {
+    var id = req.params.id;
+    
+    var Contact = require("../models/contact").Contact;
+    Contact.findOneAndUpdate({id: id}, req.body, {new: true}).exec()
+        .then(function(result) {
+            res.status(200).json(result);
         })
+        .catch(function(err) {
+            console.log("Error: " + err);
+            res.status(404).json(err);
+        });
 });
 
 module.exports = router;
