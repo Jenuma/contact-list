@@ -18,7 +18,10 @@ A possible solution to this is the async library, but I just have to look into i
 I also want to either not animate at all on a successful edit, or have a different
 animation than the ones for adding and removing, preferably slide out/in sideways.
 
+I need to refactor the client-side contacts controller to be singlular for consistency.
+
 ## Testing
+Use PhantomJS instead of Chrome.
 
 I would like to be able to more clearly see test results.  
 Karma does not specify the names of the tests as they pass or fail.  
@@ -48,6 +51,8 @@ with other architectures.
 ## Documentation
 
 I need to go through the project and use JSDoc to document my files and functions.
+
+Make custom plugins for JSDoc to more finely document specs/services/etc.
 
 ## Meta
 
