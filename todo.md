@@ -28,9 +28,6 @@ Karma does not specify the names of the tests as they pass or fail.
 Jasmine-node does, but I would like it to be uniform with Karma.
 
 I need to be able to verify that db calls are being made in the server for commands.
-Specifically, the add/edit/delete endpoints. This may require refactoring the endpoints
-so that they call functions rather than have the functions inside them. Or, I could
-possibly spy on the db calls themselve via Jasmine-node.
 
 I need to add integration tests at some point.
 
@@ -41,6 +38,7 @@ Add good, formatting logging capabilities.
 ## Building
 
 I would like the ability to bundle all of my scripts and stylesheets, and minify them.
+If I could make one build command for lint/minify/bundle/document/test, that'd be amazing.
 
 ## Compatibility
 
@@ -50,10 +48,15 @@ with other architectures.
 
 ## Documentation
 
-I need to go through the project and use JSDoc to document my files and functions.
-
 Make custom plugins for JSDoc to more finely document specs/services/etc.
 
 ## Meta
 
 I need to add a license file to this project.
+
+I need to update the standards for the file, i.e., don't pull request until you
+test, document, and squash.
+
+I need to document the folder structure either on the wiki or somewhere.
+
+I should document my batch/command files for mongod on the wiki.
