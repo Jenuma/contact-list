@@ -8,7 +8,7 @@ The application should do some validation on the data, maybe client and server b
 
 I should be able to hit `return` instead of having to click on the add button.
 
-The server-side endpoints need to be more verbose, and handle errors.
+The client-side controllers need to be more verbose, and handle errors.
 
 ## Style
 

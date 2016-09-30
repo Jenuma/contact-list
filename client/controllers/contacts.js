@@ -38,6 +38,9 @@
             $http.get("/contacts")
                 .then(function(response) {
                     vm.contacts = response.data;
+                },
+                function(response) {
+                    //TODO: Handle error.
                 });
         };
 
@@ -53,6 +56,9 @@
                     vm.contacts.push(response.data);
 
                     vm.formData = undefined;
+                },
+                function(response) {
+                    //TODO: Handle error.
                 });
         };
         
@@ -71,6 +77,9 @@
                             break;
                         }
                     }
+                },
+                function(response) {
+                    //TODO: Handle error.
                 });
             vm.stopEditing();
         };
@@ -99,6 +108,9 @@
                             break;
                         }
                     }
+                },
+                function(response) {
+                    //TODO: Handle error.
                 });
         };
         
