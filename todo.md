@@ -21,7 +21,6 @@ animation than the ones for adding and removing, preferably slide out/in sideway
 I need to refactor the client-side contacts controller to be singlular for consistency.
 
 ## Testing
-Use PhantomJS instead of Chrome.
 
 I would like to be able to more clearly see test results.  
 Karma does not specify the names of the tests as they pass or fail.  
@@ -42,9 +41,7 @@ If I could make one build command for lint/minify/bundle/document/test, that'd b
 
 ## Compatibility
 
-I need the ability to work on this cross-platform with other people. I need to look
-into my pathing and possibly use approaches like `join` that will make them compatible
-with other architectures.
+404
 
 ## Documentation
 
