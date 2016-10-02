@@ -49,8 +49,6 @@ Make custom plugins for JSDoc to more finely document specs/services/etc.
 
 ## Meta
 
-I need to add a license file to this project.
-
 I need to update the standards for the file, i.e., don't pull request until you
 test, document, and squash.
 
