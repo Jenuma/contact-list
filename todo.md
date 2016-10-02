@@ -18,8 +18,6 @@ A possible solution to this is the async library, but I just have to look into i
 I also want to either not animate at all on a successful edit, or have a different
 animation than the ones for adding and removing, preferably slide out/in sideways.
 
-I need to refactor the client-side contacts controller to be singlular for consistency.
-
 ## Testing
 
 I would like to be able to more clearly see test results.  
