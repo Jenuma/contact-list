@@ -6,9 +6,9 @@ Since I'm not using any sort of task board for this simple project, I'm going to
 
 The application should do some validation on the data, maybe client and server both.
 
-I should be able to hit `return` instead of having to click on the add button.
-
 The client-side controllers need to be more verbose, and handle errors.
+
+The add contact button icon should change from a plus to a check when editing a contact.
 
 ## Style
 
