@@ -25,6 +25,7 @@
          * @property {Contact[]} contacts - An array of all contacts.
          * @property {Contact} formData - Data currently in the form.
          * @property {boolean} isEditing - Indicates if the user is editing.
+         * @property {string} updateIcon - Icon for the add/edit button.
          */
         var vm = this;
 
@@ -123,6 +124,8 @@
         vm.startEditing = function(contact) {
             vm.isEditing = true;
             
+            vm.updateIcon = "fa fa-check fa-fw";
+            
             // TODO: Find a better deep copy method.
             vm.formData = JSON.parse(JSON.stringify(contact));
             vm.updateContact = vm.editContact;
@@ -136,6 +139,8 @@
          */
         vm.stopEditing = function() {
             vm.isEditing = false;
+            
+            vm.updateIcon = "fa fa-plus fa-fw";
             
             vm.formData = undefined;
             vm.updateContact = vm.addContact;
