@@ -2,6 +2,11 @@
 
 Since I'm not using any sort of task board for this simple project, I'm going to log stories here.
 
+## Bugs
+
+Fix problem where user can delete the contact they are currently editing.
+It may be a good idea to disable all delete buttons while editing.
+
 ## Features
 
 The application should do some validation on the data, maybe client and server both.
