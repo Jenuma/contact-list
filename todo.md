@@ -10,7 +10,8 @@ Since I'm not using any sort of task board for this simple project, I'm going to
 
 The application should do some validation on the data, maybe client and server both.
 
-The client-side controllers need to be more verbose, and handle errors.
+Improve error messages by separating them into their own controller and html file. This may
+require knowledge about Angular services.
 
 ## Style
 

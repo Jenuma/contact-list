@@ -26,6 +26,7 @@
          * @property {Contact} formData - Data currently in the form.
          * @property {boolean} isEditing - Indicates if the user is editing.
          * @property {string} updateIcon - Icon for the add/edit button.
+         * @property {string} error - The most recent error, if any.
          */
         var vm = this;
 
@@ -41,7 +42,7 @@
                     vm.contacts = response.data;
                 },
                 function(response) {
-                    //TODO: Handle error.
+                    vm.error = response.data;
                 });
         };
 
@@ -59,7 +60,7 @@
                     vm.formData = undefined;
                 },
                 function(response) {
-                    //TODO: Handle error.
+                    vm.error = response.data;
                 });
         };
         
@@ -80,7 +81,7 @@
                     }
                 },
                 function(response) {
-                    //TODO: Handle error.
+                    vm.error = response.data;
                 });
             vm.stopEditing();
         };
@@ -111,7 +112,7 @@
                     }
                 },
                 function(response) {
-                    //TODO: Handle error.
+                    vm.error = response.data;
                 });
         };
         

@@ -46,7 +46,7 @@ function getContacts(req, res) {
         })
         .catch(function(err) {
             console.log("Error: " + err);
-            res.status(500).json(err);
+            res.status(500).send(err.message);
         });
 }
 
@@ -76,7 +76,7 @@ function addContact(req, res) {
         })
         .catch(function(err) {
             console.log("Error: " + err);
-            res.status(500).json(err);
+            res.status(500).send(err.message);
         });
 }
 
@@ -102,7 +102,7 @@ function deleteContact(req, res) {
         })
         .catch(function(err) {
             console.log("Error: " + err);
-            res.status(404).json(err);
+            res.status(404).send(err.message);
         });
 }
 
@@ -128,7 +128,7 @@ function editContact(req, res) {
         })
         .catch(function(err) {
             console.log("Error: " + err);
-            res.status(404).json(err);
+            res.status(404).send(err.message);
         });
 }
 
