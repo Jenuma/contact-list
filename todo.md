@@ -4,16 +4,13 @@ Since I'm not using any sort of task board for this simple project, I'm going to
 
 ## Bugs
 
-Fix problem where user can delete the contact they are currently editing.
-It may be a good idea to disable all delete buttons while editing.
+404
 
 ## Features
 
 The application should do some validation on the data, maybe client and server both.
 
 The client-side controllers need to be more verbose, and handle errors.
-
-The add contact button icon should change from a plus to a check when editing a contact.
 
 ## Style
 
