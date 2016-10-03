@@ -33,7 +33,7 @@
                     <td>{{contact.email}}</td>
                     <td>{{contact.number}}</td>
                     <td>
-                        <button type="button" class="btn btn-danger" ng-click="contactCtrl.deleteContact(contact.id)">
+                        <button type="button" class="btn btn-danger" ng-disabled="contactCtrl.isEditing" ng-click="contactCtrl.deleteContact(contact.id)">
                             <span class="fa fa-trash-o fa-fw"></span>
                         </button>
                     </td>
