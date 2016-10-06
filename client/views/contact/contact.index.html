@@ -4,7 +4,7 @@
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <strong>Error: </strong>{{contactCtrl.error}}
     </div>
-    <form ng-submit="contactCtrl.updateContact()">
+    <form name="contactForm" ng-submit="contactCtrl.updateContact()">
         <table class="table">
             <thead>
                 <tr>
@@ -17,9 +17,36 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><input class="form-control" ng-model="contactCtrl.formData.name"/></td>
-                    <td><input class="form-control" ng-model="contactCtrl.formData.email"/></td>
-                    <td><input class="form-control" ng-model="contactCtrl.formData.number"/></td>
+                    <td>
+                        <input 
+                               type="text"
+                               name="name"
+                               class="form-control"
+                               required
+                               ng-class="{'has-error': contactform.name.$touched && contactForm.name.$invalid}"
+                               ng-model="contactCtrl.formData.name"
+                        />
+                    </td>
+                    <td>
+                        <input 
+                               type="email"
+                               name="email"
+                               class="form-control"
+                               required
+                               ng-class="{'has-error': contactform.email.$touched && contactForm.email.$invalid}"
+                               ng-model="contactCtrl.formData.email"
+                        />
+                    </td>
+                    <td>
+                        <input 
+                               type="text"
+                               class="form-control"
+                               name="number"
+                               required
+                               ng-class="{'has-error': contactform.number.$touched && contactForm.number.$invalid}"
+                               ng-model="contactCtrl.formData.number"
+                        />
+                    </td>
                     <td>
                         <button type="submit" class="btn btn-success">
                             <span ng-class="contactCtrl.updateIcon || 'fa fa-plus fa-fw'"></span>

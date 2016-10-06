@@ -2,6 +2,14 @@
 
 Since I'm not using any sort of task board for this simple project, I'm going to log stories here.
 
+## Refactoring
+
+I need to look at my front-end Angular API and do some refactoring.
+- Make sure views are separated well, use directives when you can, or components
+- Extract $http calls from controller into contact.service.js
+- Extract error handling functionality into service or directive for reuse.
+- Possibly other bad practices if I find any.
+
 ## Bugs
 
 404
