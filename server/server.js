@@ -17,9 +17,12 @@ app.use("/angular-animate", express.static(__dirname + "/../node_modules/angular
 app.use("/animate.css", express.static(__dirname + "/../node_modules/animate.css"));
 app.use("/jquery", express.static(__dirname + "/../node_modules/jquery/dist"));
 app.use("/bootstrap", express.static(__dirname + "/../node_modules/bootstrap/dist"));
-app.use("/font-awesome", express.static(__dirname + "/../node_modules/font-awesome"))
+app.use("/font-awesome", express.static(__dirname + "/../node_modules/font-awesome"));
+app.use("/directives", express.static(__dirname + "/../client/common/directives"));
+app.use("/services", express.static(__dirname + "/../client/common/services"));
 app.use("/controllers", express.static(__dirname + "/../client/controllers"));
 app.use("/stylesheets", express.static(__dirname + "/../client/stylesheets"));
+app.use("/views", express.static(__dirname + "/../client/views"));
 app.use(express.static(__dirname + "/../client/views"));
 app.use(bodyParser.json());
 

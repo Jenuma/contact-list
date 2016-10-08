@@ -6,19 +6,21 @@
     "use strict";
     
     angular
-    .module("contacts", [])
+    .module("wg.contacts", [])
     .controller("ContactController", ContactController);
+    
+    ContactController.$inject = ["$http", "errorService"];
     
     /**
      * Client (Angular) Controller for a Contact resource.
      * @constructor ContactController
      * @memberOf ClientControllers
-     * @param {object} $scope - The glue between the controller and the view.
      * @param {service} $http - Facilitates communication with remote HTTP server.
+     * @param {service} errorService - Notified if there are any errors with contacts.
      */
-    function ContactController($scope, $http) {
+    function ContactController($http, errorService) {
         /**
-         * The view-model for a Contact resource. 
+         * The view-model for a Contact resource.
          * @typedef {View-Model}
          * @memberOf ClientControllers.ContactController
          * @instance
@@ -42,7 +44,7 @@
                     vm.contacts = response.data;
                 },
                 function(response) {
-                    vm.error = response.data;
+                    errorService.updateErrorMessage(response.data);
                 });
         };
 
@@ -56,11 +58,11 @@
             $http.post("/contacts", vm.formData)
                 .then(function(response) {
                     vm.contacts.push(response.data);
-
+                    
                     vm.formData = undefined;
                 },
                 function(response) {
-                    vm.error = response.data;
+                    errorService.updateErrorMessage(response.data);
                 });
         };
         
@@ -81,7 +83,7 @@
                     }
                 },
                 function(response) {
-                    vm.error = response.data;
+                    errorService.updateErrorMessage(response.data);
                 });
             vm.stopEditing();
         };
@@ -112,7 +114,7 @@
                     }
                 },
                 function(response) {
-                    vm.error = response.data;
+                    errorService.updateErrorMessage(response.data);
                 });
         };
         
@@ -147,7 +149,6 @@
             vm.updateContact = vm.addContact;
         }
         
-        // This call is required to update the view-model when the page loads.
         vm.getContacts();
     }
 })();

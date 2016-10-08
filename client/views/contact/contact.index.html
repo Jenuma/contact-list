@@ -1,9 +1,6 @@
 <div id="contact-index" class="container" ng-controller="ContactController as contactCtrl">
     <h1>Contact List</h1>
-    <div class="alert alert-danger" ng-show="contactCtrl.error">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>Error: </strong>{{contactCtrl.error}}
-    </div>
+    <div wg-error></div>
     <form name="contactForm" ng-submit="contactCtrl.updateContact()">
         <table class="table">
             <thead>

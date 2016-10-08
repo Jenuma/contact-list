@@ -1,0 +1,6 @@
+<div ng-controller="ErrorController as errorCtrl">
+    <div class="alert alert-danger" ng-show="errorCtrl.errorMessage">
+        <a href="#" class="close" aria-label="close" ng-click="errorCtrl.dismissError()">&times;</a>
+        <strong>Error: </strong>{{errorCtrl.errorMessage}}
+    </div>
+</div>

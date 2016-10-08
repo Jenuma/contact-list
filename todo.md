@@ -36,6 +36,8 @@ Karma does not specify the names of the tests as they pass or fail.
 Jasmine-node does, but I would like it to be uniform with Karma.
 
 I need to be able to verify that db calls are being made in the server for commands.
+I am having increasing trouble with this, it seems. Most of the functions I need to verify
+are private functions. I don't have the solution but my unit tests are incomplete without one.
 
 I need to add integration tests at some point.
 

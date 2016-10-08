@@ -4,6 +4,9 @@
     angular
         .module("app", [
             "ngAnimate",
-            "contacts"
+            "wg.directives",
+            "wg.services",
+            "wg.errors",
+            "wg.contacts"
         ]);
 })();
