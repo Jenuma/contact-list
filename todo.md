@@ -4,11 +4,7 @@ Since I'm not using any sort of task board for this simple project, I'm going to
 
 ## Refactoring
 
-I need to look at my front-end Angular API and do some refactoring.
-- Make sure views are separated well, use directives when you can, or components
-- Extract $http calls from controller into contact.service.js
-- Extract error handling functionality into service or directive for reuse.
-- Possibly other bad practices if I find any.
+404
 
 ## Bugs
 
@@ -16,10 +12,11 @@ I need to look at my front-end Angular API and do some refactoring.
 
 ## Features
 
-The application should do some validation on the data, maybe client and server both.
+It would be nice to be able to search for a contact.
 
-Improve error messages by separating them into their own controller and html file. This may
-require knowledge about Angular services.
+The application should do server side validation.
+
+I need practice with pagination, but I think infinite scrolling would be more appropriate here.
 
 ## Style
 
