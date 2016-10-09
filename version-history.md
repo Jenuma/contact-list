@@ -45,3 +45,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.11.2] - 2016-10-3
 - Added client-side error-handling and alert boxes.
+
+## [0.12.2] - 2016-10-3
+- Added client-side form entry validation and Bootstrap validation error messages.
+
+## [0.13.2] - 2016-10-9
+- Refactored front-end code so error messages are no longer coupled to contacts.
