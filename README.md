@@ -1,7 +1,11 @@
 # contact-list
 An example project for becoming familiar with MEAN stack.
 
-It currently features the ability to list all contacts (name/email address/phone number) from a MongoDB data source.
+## Notice:
+This project has been refactored into [Abject Admin](https://github.com/Jenuma/abject-admin), which picks up right where I left off here. The new project integrates the contact list into a much larger intranet that can also house other tools.
+
+## Legacy
+`contact-list` currently features the ability to list all contacts (name/email address/phone number) from a MongoDB data source.
 Additionally, you can add new contacts, delete contacts, or edit contacts.
 
 Based on [this](https://www.youtube.com/watch?v=kHV7gOHvNdk) YouTube tutorial.
